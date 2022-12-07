@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Start Set Up */
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+        transition: all 0.2s;
+      }
+      html {
+        font-size: 100px;
+      }
+      body {
+        font-size: 0.14rem;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* End Set Up */
+
+      /* Start Header */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        /*  height: 1.05rem; */
+        height: 0.9rem;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0.7rem 0 0.7rem;
+        z-index: 999;
+      }
+      header img {
+        width: 2.7rem;
+      }
+
+      header nav {
+        display: flex;
+        gap: 0.1rem;
+      }
+      header nav a,
+      header .user a,
+      footer .donate a {
+        border: 0.01rem solid white;
+        padding: 0.08rem 0.18rem;
+        border-radius: 0.25rem;
+      }
+      header nav a:hover {
+        border-color: #6cabc1;
+        background-color: #6cabc1;
+        color: white;
+      }
+      header .user a,
+      footer .donate a {
+        border-color: #f15a22;
+        background-color: #f15a22;
+        color: white;
+      }
+
+      header .burger-menu {
+        display: none;
+        cursor: pointer;
+      }
+      header .burger {
+        width: 60%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      header .close {
+        display: none;
+      }
+
+      /* End Header */
+
+      /* Start Intro Section */
+      .intro {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-color: pink;
+        background: url(./imgs/IMG_7684.JPG);
+        background-size: cover;
+      }
+      .intro::after {
+        content: " ";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        z-index: 9;
+      }
+      .intro .ad {
+        position: absolute;
+        top: 40%;
+        padding: 0 20% 0 20%;
+        width: 100%;
+
+        color: white;
+        z-index: 99;
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+      }
+      .intro .ad h1 {
+        font-size: 0.4rem;
+      }
+      .intro .ad h6 {
+        font-size: 0.25rem;
+        font-weight: 400;
+      }
+      .intro .ad p {
+        font-size: 0.15rem;
+      }
+      .intro .ad .input {
+        display: flex;
+      }
+      .intro .ad .input input {
+        outline: none;
+        width: 100%;
+        height: 0.5rem;
+        border: none;
+        font-size: larger;
+        border-radius: 0 0.05rem 0.05rem 0;
+      }
+      .intro .ad .input .search-logo {
+        width: 0.5rem;
+        height: 0.5rem;
+        color: #767676;
+        background-color: white;
+        text-align: center;
+        line-height: 0.5rem;
+        font-size: larger;
+        border-radius: 0.05rem 0 0 0.05rem;
+      }
+      .intro .ad a {
+        color: #c9c5c5;
+      }
+      .intro .ad a:hover {
+        color: white;
+      }
+      /* End Intro Section */
+
+      /* Start Select Part */
+      .select {
+        position: relative;
+        padding: 0 0.7rem 0 0.7rem;
+        margin: 0.2rem 0 0.2rem 0;
+      }
+      .select .popular {
+        width: 1.2rem;
+        height: 0.4rem;
+        border: 0.01rem solid #e8e8e8;
+        text-align: center;
+        line-height: 0.4rem;
+        cursor: pointer;
+      }
+      .select .popular-latest {
+        position: absolute;
+        top: 0.5rem;
+        width: 1.9rem;
+        height: 0.9rem;
+        border: 0.01rem solid #e8e8e8;
+        background-color: white;
+        display: none;
+        flex-direction: column;
+      }
+      .select .show {
+        display: flex;
+      }
+      .select .popular-latest div {
+        cursor: pointer;
+
+        height: 0.45rem;
+        line-height: 0.45rem;
+        padding-left: 0.24rem;
+      }
+      .select .popular-latest div:hover {
+        background-color: #d2d2d2;
+      }
+      /* .selected {
+  background-color: #d2d2d2;
+} */
+      /*  End Select Part */
+
+      /* Start Content Section */
+      .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 0.7rem 0 0.7rem;
+        gap: 0.1rem;
+      }
+      .content .item {
+        width: 3rem;
+        height: 2.5rem;
+
+        margin-bottom: 0.3rem;
+      }
+      .content .item .small-content {
+        width: 3rem;
+        height: 2rem;
+        background-color: grey;
+        overflow: hidden;
+        border-radius: 0.1rem;
+        cursor: pointer;
+      }
+      .content .item .small-content img {
+        width: 100%;
+        /* height: 100%; */
+      }
+      .info {
+        margin-top: 0.025rem;
+        width: 100%;
+        /*  height: 0.5rem; */ /* delete later */
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .info .portrait .head {
+        width: 0.3rem;
+        height: 0.3rem;
+        border-radius: 0.15rem;
+        overflow: hidden;
+      }
+      .info .portrait .head img {
+        width: 100%;
+      }
+      .info .portrait {
+        display: flex;
+        align-items: center;
+        gap: 0.07rem;
+      }
+      .info .heart {
+        display: flex;
+        gap: 0.05rem;
+        color: #767676;
+        cursor: pointer;
+      }
+      /* .content .item .info .heart i {
+  color: #767676;
+  cursor: pointer;
+} */
+      .info .heart:hover {
+        color: #f15a22;
+      }
+      /* End Content Section */
+
+      /* Start Footer */
+      footer {
+        width: 100%;
+
+        background-color: rgb(84 116 130);
+        display: flex;
+        justify-content: space-between;
+        padding: 0.9rem 0.7rem 0.9rem 0.7rem;
+        color: white;
+      }
+      footer img {
+        width: 2.7rem;
+      }
+      footer a {
+        color: white;
+      }
+      footer a:hover {
+        color: #c9c5c5;
+      }
+      footer ul li:first-child {
+        font-weight: 600;
+        font-size: larger;
+        margin-bottom: 0.2rem;
+      }
+      footer .media {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+      }
+      footer .media .s-logo {
+        display: flex;
+        gap: 0.15rem;
+        font-size: 0.2rem;
+      }
+      /* End Footer */
+
+      /* Start Readmore */
+      .read-more {
+        display: none;
+        width: 100%;
+        height: 100vh;
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        overflow: scroll;
+        color: black;
+      }
+      .read-more .back {
+        cursor: pointer;
+        margin: 1rem 0 0 2rem;
+        font-size: 0.25rem;
+      }
+      .read-more .main {
+        width: 8.5rem;
+        margin: 0 auto;
+      }
+      .read-more .info {
+        gap: 0.2rem;
+        justify-content: flex-end;
+        margin-bottom: 0.2rem;
+      }
+      .read-more video {
+        width: 100%;
+      }
+      .read-more .project-content {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .read-more .contact-me {
+        padding: 0.5rem;
+      }
+      .read-more .contact-me a {
+        font-size: smaller;
+      }
+      .read-more .contact-me a:hover {
+        color: #f15a22;
+      }
+      .project-content,
+      .contact-me {
+        font-size: 0.2rem;
+        line-height: 0.5rem;
+      }
+      /* End Readmore */
+      /* media */
+
+      @media (max-width: 1369px) {
+        html {
+          font-size: 8.766vw;
+        }
+        .content {
+          gap: 0.1rem;
+        }
+      }
+
+      @media (max-width: 950px) {
+        html {
+          font-size: 12.6316vw;
+        }
+        header .burger {
+          position: absolute;
+          top: 0;
+          right: -3rem;
+          flex-direction: column;
+          justify-content: space-around;
+
+          width: 3rem;
+          height: 100vh;
+
+          background-color: white;
+          transition: right 0.2s linear;
+        }
+        header nav {
+          flex-direction: column;
+          gap: 0.2rem;
+        }
+
+        header .burger-menu {
+          display: block;
+        }
+        header .close {
+          position: absolute;
+          cursor: pointer;
+          right: 0.4rem;
+          top: 0.4rem;
+          display: block;
+
+          text-align: center;
+          font-size: 0.3rem;
+        }
+        .burger-menu {
+          display: block;
+        }
+        footer {
+          font-size: smaller;
+        }
+      }
+
+      @media (max-width: 615px) {
+        html {
+          font-size: 19.5122vw;
+        }
+
+        .content .item {
+          width: 100%;
+          height: 3.5rem;
+
+          margin-bottom: 0.3rem;
+        }
+        .content .item .small-content {
+          width: 100%;
+          height: 3rem;
+        }
+        footer {
+          flex-direction: column;
+          align-items: flex-start;
+          font-size: 0.2rem;
+          gap: 0.3rem;
+        }
+        footer ul li:first-child {
+          margin-bottom: 0;
+        }
+        footer .media {
+          margin-top: 0.3rem;
+        }
+        header,
+        .select,
+        .content {
+          padding: 0 0.3rem 0 0.3rem;
+        }
+        footer {
+          padding: 0.9rem 0.3rem 0.9rem 0.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Start Hearder -->
+    <header>
+      <div class="logo">
+        <a href="javascript:location.reload();"
+          ><img
+            src="https://images.squarespace-cdn.com/content/v1/613f1e4d6b0212660acd9923/b4bd6af5-31a4-4079-a2cb-7632b5f24f58/Horizontal_nobackground.png?format=1500w"
+            alt="logo"
+        /></a>
+      </div>
+      <div class="burger">
+        <nav>
+          <div class="close"><i class="bi bi-x-circle"></i></div>
+          <a href="">COURSES</a><a href="#select">PROJECTS</a
+          ><a href="#footer">CONTACT</a>
+        </nav>
+
+        <div class="user"><a href="/login">LOG OUT</a></div>
+      </div>
+      <div class="burger-menu">
+        <i class="bi bi-list" style="font-size: 0.3rem; color: #f15a22"></i>
+      </div>
+    </header>
+    <!-- End Hearder -->
+
+    <!-- Start Intro Section -->
+    <section class="intro">
+      <div class="ad">
+        <h1>Search Project</h1>
+        <h6>100+ final projects from hundreds of ReDI graduates</h6>
+        <div class="input">
+          <div class="search-logo"><i class="bi bi-search"></i></div>
+          <input type="text" id="search" />
+        </div>
+
+        <p>
+          Suggested: <a href="#select" class="frontend">Frontend,</a>
+          <a href="#select">UI,</a> <a href="#select">UX, </a>
+          <a href="#select">Data Science ...</a>
+        </p>
+      </div>
+    </section>
+    <!-- End Intro Section -->
+
+    <!-- Start Select Part -->
+    <div class="select" id="select">
+      <div class="popular">Latest <i class="bi bi-caret-down-fill"></i></div>
+      <div class="popular-latest">
+        <div class="latest1">Latest</div>
+        <div class="popular1">Popular</div>
+      </div>
+    </div>
+    <!-- End Select Part -->
+
+    <!-- Start Content Section -->
+    <section class="content">
+      <!--  <div class="item">
+        <div class="small-content">
+          <img
+            src="./imgs/Snipaste_2022-11-22_00-16-44.jpg"
+            alt="sixun's project"
+          />
+        </div>
+        <div class="info">
+          <div class="portrait">
+            <div class="head"><img src="./imgs/Sixun_0409-.jpg" alt="" /></div>
+            <div class="nick-name">Sixun</div>
+          </div>
+          <div class="heart">
+            <i class="bi bi-heart-fill"></i>
+            <div class="number">199</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="small-content">
+          <img src="./imgs/tik.jpg" alt="sixun's project" />
+        </div>
+        <div class="info">
+          <div class="portrait">
+            <div class="head"><img src="./imgs/Sixun_0409-.jpg" alt="" /></div>
+            <div class="nick-name">Sixun</div>
+          </div>
+          <div class="heart">
+            <i class="bi bi-heart-fill"></i>
+            <div class="number">134</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="small-content">
+          <img src="./imgs/redi.jpg" alt="sixun's project" />
+        </div>
+        <div class="info">
+          <div class="portrait">
+            <div class="head"><img src="./imgs/Sixun_0409-.jpg" alt="" /></div>
+            <div class="nick-name">Sixun</div>
+          </div>
+          <div class="heart">
+            <i class="bi bi-heart-fill"></i>
+            <div class="number">99</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="small-content">
+          <img src="./imgs/coffee.jpg" alt="sixun's project" />
+        </div>
+        <div class="info">
+          <div class="portrait">
+            <div class="head"><img src="./imgs/Sixun_0409-.jpg" alt="" /></div>
+            <div class="nick-name">Sixun</div>
+          </div>
+          <div class="heart">
+            <i class="bi bi-heart-fill"></i>
+            <div class="number">78</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="small-content">
+          <img src="./imgs/cv-web.png" alt="sixun's project" />
+        </div>
+        <div class="info">
+          <div class="portrait">
+            <div class="head"><img src="./imgs/Sixun_0409-.jpg" alt="" /></div>
+            <div class="nick-name">Sixun</div>
+          </div>
+          <div class="heart">
+            <i class="bi bi-heart-fill"></i>
+            <div class="number">66</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="small-content">
+          <img src="./imgs/slider.jpg" alt="sixun's project" />
+        </div>
+        <div class="info">
+          <div class="portrait">
+            <div class="head"><img src="./imgs/Sixun_0409-.jpg" alt="" /></div>
+            <div class="nick-name">Sixun</div>
+          </div>
+          <div class="heart">
+            <i class="bi bi-heart-fill"></i>
+            <div class="number">59</div>
+          </div>
+        </div>
+      </div> -->
+    </section>
+    <!-- End Content Section -->
+
+    <!-- Start Footer -->
+    <footer id="footer">
+      <div class="logo">
+        <a href="javascript:location.reload();"
+          ><img
+            src="https://images.squarespace-cdn.com/content/v1/613f1e4d6b0212660acd9923/b4bd6af5-31a4-4079-a2cb-7632b5f24f58/Horizontal_nobackground.png?format=1500w"
+            alt="logo"
+        /></a>
+      </div>
+      <ul class="get-started">
+        <li><a href="#">Get started</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Sign up</a></li>
+      </ul>
+      <ul class="about-us">
+        <li><a href="#">About us</a></li>
+        <li><a href="#">ReDI</a></li>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Reviews</a></li>
+      </ul>
+      <ul class="support">
+        <li><a href="#">Support</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Forums</a></li>
+      </ul>
+      <div class="media">
+        <div class="s-logo">
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+        </div>
+        <div class="donate"><a href="#">DONATE</a></div>
+      </div>
+    </footer>
+
+    <!-- End Footer -->
+
+    <!-- Start ReadMore -->
+    <div class="read-more">
+      <div class="back"><i class="bi bi-arrow-down-left-circle"></i> BACK</div>
+      <div class="main">
+        <div class="info">
+          <div class="portrait">
+            <div class="head"><img src="./imgs/Sixun_0409-.jpg" alt="" /></div>
+            <div class="nick-name">Sixun</div>
+          </div>
+          <div class="heart">
+            <i class="bi bi-heart-fill"></i>
+            <div class="number">29</div>
+          </div>
+        </div>
+        <video
+          src="./media/shoppingcart.mov"
+          autoplay="autoplay"
+          loop="loop"
+          controls="controls"
+        ></video>
+        <div class="project-content">
+          <p>
+            <b>Project Goal: </b>Lorem, ipsum dolor sit amet consectetur
+            adipisicing elit. Officia voluptates molestias dolorem ad molestiae
+            mollitia possimus optio aspernatur enim iste, temporibus reiciendis
+            doloremque sapiente? Culpa accusamus ipsum tempore cupiditate
+            aspernatur?
+          </p>
+          <p>
+            <b>Functionalities:</b> add, delete, increase, decrease, select all,
+            total etc.
+          </p>
+          <p><b>Tech:</b> HTML, CSS, JAVASCRIPT, ES6</p>
+        </div>
+        <div class="contact-me">
+          <h3>Contact Me</h3>
+          <div>
+            <a> <i class="bi bi-envelope-fill"></i> Email:yangsixun7@163.com</a>
+          </div>
+
+          <div>
+            <a href="https://github.com/Sixunyang">
+              <i class="bi bi-github"></i> https://github.com/Sixunyang</a
+            >
+          </div>
+          <div>
+            <a href="https://www.linkedin.com/in/sixun-yang"
+              ><i class="bi bi-linkedin"></i>
+              https://www.linkedin.com/in/sixun-yang</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End ReadMore -->
+    <script>
+      /* My own data */
+      const projectDatabase = [
+        {
+          login: "sixun",
+          avatar_url: "./imgs/Sixun_0409-.jpg",
+          projectImg: "./imgs/Snipaste_2022-11-22_00-16-44.jpg",
+          category: "frontend",
+        },
+        {
+          login: "sixun",
+          avatar_url: "./imgs/Sixun_0409-.jpg",
+          projectImg: "./imgs/tik.jpg",
+        },
+        {
+          login: "sixun",
+          avatar_url: "./imgs/Sixun_0409-.jpg",
+          projectImg: "./imgs/redi.jpg",
+        },
+        {
+          login: "sixun",
+          avatar_url: "./imgs/Sixun_0409-.jpg",
+          projectImg: "./imgs/coffee.jpg",
+        },
+        {
+          login: "sixun",
+          avatar_url: "./imgs/Sixun_0409-.jpg",
+          projectImg: "./imgs/cv-web.png",
+        },
+        {
+          login: "sixun",
+          avatar_url: "./imgs/Sixun_0409-.jpg",
+          projectImg: "./imgs/slider.jpg",
+        },
+      ];
+
+      /* fake data from github user API */
+      let fetchResults = [];
+      let mergedDatabase = [];
+
+      /* Function to encapsulate rendering data */
+      function renderProfileFromDatabase(database) {
+        database.forEach((profile) => {
+          //filter popular project based on heart numbers
+          const item = document.createElement("div");
+          item.classList.add("item");
+          const smallContent = document.createElement("div");
+          smallContent.classList.add("small-content");
+          const img1 = document.createElement("img");
+          img1.src = profile.projectImg;
+          const info = document.createElement("div");
+          info.classList.add("info");
+          const portrait = document.createElement("div");
+          portrait.classList.add("portrait");
+          const heart = document.createElement("div");
+          heart.classList.add("heart");
+          const head = document.createElement("div");
+          head.classList.add("head");
+          const img2 = document.createElement("img");
+          img2.src = profile.avatar_url;
+          const nickName = document.createElement("div");
+          nickName.classList.add("nick-name");
+          nickName.innerHTML = profile.login;
+          /*  const i = document.createElement("i");
+    i.classList.add("bi bi-heart-fill"); */
+          const number = document.createElement("div");
+          number.classList.add("number");
+          number.innerHTML = profile.heartNumber;
+          heart.innerHTML = '<i class="bi bi-heart-fill"></i>';
+          heart.appendChild(number);
+
+          portrait.appendChild(head);
+          portrait.appendChild(nickName);
+          head.appendChild(img2);
+
+          info.appendChild(portrait);
+          info.appendChild(heart);
+
+          smallContent.appendChild(img1);
+          item.appendChild(smallContent);
+          item.appendChild(info);
+          content.appendChild(item);
+          /* Read More Part */
+
+          const readMore = document.querySelector(".read-more");
+          const body = document.querySelector("body");
+          smallContent.addEventListener("click", () => {
+            readMore.style.display = "block";
+            body.style.overflow = "hidden";
+          });
+
+          const back = document.querySelector(".back");
+          back.addEventListener("click", () => {
+            readMore.style.display = "none";
+            body.style.overflow = "auto";
+          });
+
+          /*  Heart functionality */
+
+          let flag = true;
+          heart.addEventListener("click", () => {
+            if (flag) {
+              heart.style.color = "#f15a22";
+              const num = parseInt(number.innerHTML) + 1;
+              number.innerHTML = num;
+              flag = false;
+            } else {
+              heart.style.color = "#767676";
+              const num = parseInt(number.innerHTML) - 1;
+              number.innerHTML = num;
+              flag = true;
+            }
+          });
+        });
+      }
+
+      const content = document.querySelector(".content");
+      fetch("https://api.github.com/users")
+        .then((res) => res.json())
+        .then((data) => {
+          data.forEach((profile) => {
+            profile.projectImg =
+              "https://images.unsplash.com/photo-1530435460869-d13625c69bbf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fHdlYnNpdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60";
+          });
+          fetchResults = data;
+          mergedDatabase = [...projectDatabase, ...fetchResults];
+          mergedDatabase.forEach((profile, index) => {
+            profile.heartNumber = Math.floor(Math.random() * 100 + 1);
+            profile.time = index;
+          });
+          renderProfileFromDatabase(mergedDatabase);
+        });
+      /* burger-menu functionality */
+      const burgerMenu = document.querySelector(".burger-menu");
+      const burger = document.querySelector(".burger");
+      const close = document.querySelector(".close");
+      burgerMenu.addEventListener("click", () => {
+        burger.style.right = "0";
+      });
+      close.addEventListener("click", () => {
+        burger.style.right = "-3rem";
+      });
+
+      /* Select Popular or Latest */
+      const popular = document.querySelector(".popular");
+      const popularLatest = document.querySelector(".popular-latest");
+
+      popular.addEventListener("click", () => {
+        popularLatest.classList.toggle("show");
+      });
+
+      const popular1 = document.querySelector(".popular1");
+      popular1.addEventListener("click", function () {
+        popularLatest.classList.toggle("show");
+        popular.innerHTML = "Popular <i class='bi bi-caret-down-fill'></i>";
+        content.innerHTML = "";
+        mergedDatabase.sort((a, b) => b.heartNumber - a.heartNumber);
+        renderProfileFromDatabase(mergedDatabase);
+      });
+      const latest1 = document.querySelector(".latest1");
+      latest1.addEventListener("click", function () {
+        popularLatest.classList.toggle("show");
+        popular.innerHTML = "Latest <i class='bi bi-caret-down-fill'></i>";
+        content.innerHTML = "";
+        mergedDatabase.sort((a, b) => a.time - b.time);
+        renderProfileFromDatabase(mergedDatabase);
+      });
+
+      /* Select relevant project  */
+
+      const frontend = document.querySelector(".frontend");
+      function addFrontendContent() {
+        content.innerHTML = "";
+        const frontendDatabase = mergedDatabase.filter(
+          (ele) => ele.category === "frontend"
+        );
+        renderProfileFromDatabase(frontendDatabase);
+      }
+
+      frontend.addEventListener("click", addFrontendContent);
+
+      /* Search functionality */
+      const input = document.querySelector("#search");
+      document.addEventListener("keydown", function (e) {
+        if (e.keyCode === 13) {
+          if (input.value === "frontend") {
+            scrollTo(0, 600);
+            addFrontendContent();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

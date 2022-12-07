@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 100px;
+      }
+      body {
+        font-size: 0.2rem;
+        font-family: "Times New Roman", Times, serif;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 35%;
+        height: 5rem;
+
+        background-color: white;
+
+        padding: 0.5rem;
+        box-shadow: 0.05rem 0.05rem 0.15rem rgba(0, 0, 0, 0.2);
+        /* border-radius: 0.8rem 0.02rem; */
+      }
+      .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: blue;
+        height: 100vh;
+        background: url(https://images.unsplash.com/photo-1531685250784-7569952593d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80);
+      }
+      input {
+        width: 90%;
+        height: 0.4rem;
+        outline: none;
+        /*  border: 0.01rem solid grey; */
+        border: none;
+        border-radius: 0.02rem;
+        background-color: rgb(247, 245, 246);
+        font-size: 0.17rem;
+        color: #575151;
+        padding: 0.15rem;
+      }
+      button {
+        width: 0.8rem;
+        height: 0.4rem;
+        color: white;
+        background-color: #f15a22;
+        cursor: pointer;
+        border: #f15a22;
+        border-radius: 0.03rem;
+        font-size: 0.16rem;
+      }
+      .welcome img {
+        width: 5rem;
+      }
+      h1,
+      p {
+        margin-top: 0.1rem;
+        color: #1e1515;
+      }
+      form > p:last-child {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="welcome">
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/613f1e4d6b0212660acd9923/b4bd6af5-31a4-4079-a2cb-7632b5f24f58/Horizontal_nobackground.png?format=1500w"
+          alt=""
+        />
+      </div>
+      <form action="">
+        <h1>Login</h1>
+        <div class="input">
+          <input type="email" name="" id="" />
+          <p>Email address</p>
+        </div>
+        <div class="input">
+          <input type="password" name="" id="" />
+          <p>Password</p>
+        </div>
+        <button type="submit">Sign &nbsp;In</button>
+        <p>Don't have an account yet?<a href="">Register</a></p>
+      </form>
+    </div>
+  </body>
+</html>
